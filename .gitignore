@@ -58,3 +58,18 @@ backend/uploads/*
 
 frontend/public/assets/*
 !frontend/public/assets/.gitkeep
+
+# Системные/служебные файлы
+frontend/npm
+/git
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Локальные настройки
+*.local
+
+# Кэш линтеров
+.eslintcache

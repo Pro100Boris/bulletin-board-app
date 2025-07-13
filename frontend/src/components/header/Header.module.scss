@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #ff0000;
+  position: relative; // Для выпадающих меню (если будут)
+  z-index: 100; // Чтобы шапка была поверх других элементов
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 1rem;
+  }
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer; // Если лого кликабельное
+
+  &:hover {
+    opacity: 0.9; // Эффект при наведении
+  }
+}
+
+.logoImage {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0; // Чтобы лого не сжималось на мобилках
+
+  @media (max-width: 480px) {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 600;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+}
+
+.authButton {
+  background: white;
+  color: #ff0000;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #f5f5f5;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}
