@@ -78,19 +78,31 @@ VITE_API_URL=http://localhost:5000/api
 
 ### 4. Запуск приложения
 
-#### Запуск backend:
+#### Вариант 1: Автоматический запуск всего (рекомендуется)
 ```bash
+# Из корневой директории
+npm run install:all  # Установить все зависимости
+npm run dev          # Запустить все сервисы одновременно
+```
+
+#### Вариант 2: Ручной запуск
+```bash
+# Терминал 1: Backend
 cd backend
 npm run dev
-```
-Backend запустится на http://localhost:5000
+# Backend запустится на http://localhost:5000
 
-#### Запуск frontend:
-```bash
+# Терминал 2: Frontend  
 cd frontend
 npm run dev
+# Frontend запустится на http://localhost:5173
 ```
-Frontend запустится на http://localhost:5173
+
+#### Полезные команды:
+```bash
+npm run stop:db      # Остановить MongoDB (если используется Docker)
+cd backend && npm run seed  # Заполнить базу тестовыми данными
+```
 
 ## Функциональность
 

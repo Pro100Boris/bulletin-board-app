@@ -1,0 +1,21 @@
+{
+  "name": "board-app",
+  "version": "1.0.0",
+  "description": "Доска объявлений КликТорг",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:db\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:db": "docker-compose up -d mongodb",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "stop:db": "docker-compose down"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": ["доска объявлений", "react", "nodejs", "mongodb"],
+  "author": "",
+  "license": "MIT"
+}
