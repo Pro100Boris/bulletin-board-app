@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { Header } from './components/header';
 import { Home } from './pages/Home/Home';
+import { Login, Register } from './pages/Auth';
 import './App.scss';
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
           <main className="main">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               {/* Здесь будут добавлены другие роуты */}
             </Routes>
           </main>

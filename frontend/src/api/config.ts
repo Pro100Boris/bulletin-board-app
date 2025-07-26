@@ -32,8 +32,11 @@ apiClient.interceptors.response.use(
       // Удаляем токен при ошибке авторизации
       localStorage.removeItem('authToken');
       localStorage.removeItem('user');
-      // Можно добавить редирект на страницу входа
-      window.location.href = '/login';
+      // Используем history API вместо прямого редиректа
+      if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
+        window.history.pushState({}, '', '/login');
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      }
     }
     return Promise.reject(error);
   }
