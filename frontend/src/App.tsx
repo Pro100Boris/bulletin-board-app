@@ -4,6 +4,8 @@ import { AuthProvider } from './contexts/AuthContext';
 import { Header } from './components/header';
 import { Home } from './pages/Home/Home';
 import { Login, Register } from './pages/Auth';
+import { CreateAd } from './pages/CreateAd';
+import { AdDetail } from './pages/AdDetail/AdDetail';
 import './App.scss';
 
 function App() {
@@ -17,6 +19,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/create-ad" element={<CreateAd />} />
+              <Route path="/ad/:id" element={<AdDetail />} />
               {/* Здесь будут добавлены другие роуты */}
             </Routes>
           </main>

@@ -34,12 +34,14 @@ const upload = multer({
 // Публичные роуты (не требуют авторизации)
 router.get('/', adsController.getAllAds);                    // GET /api/ads - получить все объявления
 router.get('/categories', adsController.getCategories);      // GET /api/ads/categories - получить категории
-router.get('/:id', adsController.getAdById);                // GET /api/ads/:id - получить объявление по ID
 
-// Защищенные роуты (требуют авторизации)
+// Защищенные роуты (требуют авторизации) - ВАЖНО: специфичные роуты должны быть ДО общих
+router.get('/user/my', authMiddleware, adsController.getUserAds);                               // GET /api/ads/user/my - получить объявления пользователя
 router.post('/', authMiddleware, upload.array('images', 10), adsController.createAd);           // POST /api/ads - создать объявление
 router.put('/:id', authMiddleware, upload.array('images', 10), adsController.updateAd);        // PUT /api/ads/:id - обновить объявление
 router.delete('/:id', authMiddleware, adsController.deleteAd);                                  // DELETE /api/ads/:id - удалить объявление
-router.get('/user/my', authMiddleware, adsController.getUserAds);                               // GET /api/ads/user/my - получить объявления пользователя
+
+// Публичные роуты с параметрами (должны быть в конце)
+router.get('/:id', adsController.getAdById);                // GET /api/ads/:id - получить объявление по ID
 
 module.exports = router;

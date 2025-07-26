@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Ad } from '../../../types';
 import styles from './AdCard.module.scss';
 
@@ -8,12 +9,14 @@ interface AdCardProps {
 }
 
 export const AdCard: React.FC<AdCardProps> = ({ ad, onClick }) => {
+  const navigate = useNavigate();
+
   const handleClick = () => {
     if (onClick) {
       onClick(ad);
     } else {
       // Навигация к детальной странице объявления
-      window.location.href = `/ad/${ad._id}`;
+      navigate(`/ad/${ad._id}`);
     }
   };
 
@@ -38,7 +41,7 @@ export const AdCard: React.FC<AdCardProps> = ({ ad, onClick }) => {
       // Иначе добавляем базовый URL сервера
       return `http://localhost:5000/${ad.images[0]}`;
     }
-    return '/placeholder-image.jpg'; // Заглушка для отсутствующих изображений
+    return '/placeholder-image.svg'; // Заглушка для отсутствующих изображений
   };
 
   return (
@@ -50,7 +53,7 @@ export const AdCard: React.FC<AdCardProps> = ({ ad, onClick }) => {
           className={styles.image}
           onError={(e) => {
             // Обработка ошибки загрузки изображения
-            e.currentTarget.src = '/placeholder-image.jpg';
+            e.currentTarget.src = '/placeholder-image.svg';
           }}
         />
         <div className={styles.category}>
